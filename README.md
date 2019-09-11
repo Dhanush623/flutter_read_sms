@@ -2,6 +2,9 @@
 
 A new Flutter project.
 
+Read Incoming Message by using sms plugin.
+
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
