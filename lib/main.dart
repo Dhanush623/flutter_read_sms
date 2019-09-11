@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sms/sms.dart';
 
 void main() => runApp(MyApp());
 
@@ -54,6 +55,24 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
+    });
+  }
+
+  void initState(){
+    getIncomingMessage();
+    super.initState();
+  }
+
+  getIncomingMessage() async{
+    SmsReceiver receiver = new SmsReceiver();
+    receiver.onSmsReceived.listen((SmsMessage msg) => {
+      print(msg.address),
+      print(msg.body),
+      print(msg.date),
+      print(msg.isRead),
+      print(msg.sender),
+      print(msg.threadId),
+      print(msg.state)
     });
   }
 
