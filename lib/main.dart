@@ -59,12 +59,15 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void initState(){
+    // To create SMS Listner
     getIncomingMessage();
     super.initState();
   }
 
   getIncomingMessage() async{
+    // Create SMS Receiver Listener
     SmsReceiver receiver = new SmsReceiver();
+    // msg has New Incoming Message
     receiver.onSmsReceived.listen((SmsMessage msg) => {
       print(msg.address),
       print(msg.body),
